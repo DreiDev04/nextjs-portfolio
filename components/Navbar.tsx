@@ -63,16 +63,20 @@ const Navbar = () => {
           <Button
             variant="ghost"
             size="sm"
-            className="z-50 relative"
+            className="z-50 relative "
             onClick={() => {
               setOpen((prev) => !prev);
             }}
           >
-            <GiHamburgerMenu className="text-lg" />
+            {open ? (
+              <IoMdClose className="text-lg text-background " />
+            ) : (
+              <GiHamburgerMenu className="text-lg" />
+            )}
           </Button>
         </div>
         {open && (
-          <div className="absolute top-0 left-0 bg-background w-screen h-screen flex flex-col justify-center px-10 gap-5 ">
+          <div className="absolute top-0 left-0 bg-foreground text-background w-screen h-screen flex flex-col justify-center px-10 gap-5 ">
             <div className="flex gap-5 flex-col">
               {navLinks.map((link, index) => (
                 <Link
@@ -97,7 +101,6 @@ const Navbar = () => {
           </div>
         )}
       </div>
-
 
       <div className="hidden md:flex md:gap-6 lg:gap-10 xl:gap-14 ">
         <div className="flex gap-5">
