@@ -9,6 +9,7 @@ import ToggleSwitch from "@/components/custom/toggleDark";
 import { Button } from "@/components/ui/button";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
+import { usePathname } from "next/navigation";
 
 const socials = [
   {
@@ -48,7 +49,7 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-
+  const pathname = usePathname();
   return (
     <nav className="flex flex-row justify-between container">
       <Link
@@ -57,7 +58,35 @@ const Navbar = () => {
       >
         John Andrei 👨‍💻
       </Link>
-      <div className="flex gap-10 md:hidden">
+
+      {/*Desktop Navigation*/}
+      <div className="hidden md:flex md:gap-6 lg:gap-10 xl:gap-14 ">
+        <div className="flex gap-5">
+          {navLinks.map((link, index) => (
+            <Link
+              href={link.link}
+              key={index}
+              className={`text-lg font-medium px-2 rounded-lg ${pathname === link.link ? "bg-foreground text-background" : ""}`}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+        <div className="flex gap-2 flex-row text-2xl">
+          {socials.map((social, index) => {
+            const Icon = social.icon;
+            return (
+              <Link href={social.link} key={index} aria-label={social.name}>
+                <Icon />
+              </Link>
+            );
+          })}
+          <ToggleSwitch />
+        </div>
+      </div>
+
+      {/*Mobile Navigation*/}
+      <div className="flex gap-10 md:hidden ">
         <div className="flex gap-1 items-center">
           <ToggleSwitch />
           <Button
@@ -76,7 +105,7 @@ const Navbar = () => {
           </Button>
         </div>
         {open && (
-          <div className="absolute top-0 left-0 bg-foreground text-background w-screen h-screen flex flex-col justify-center px-10 gap-5 ">
+          <div className="absolute top-0 left-0 bg-foreground text-background w-full h-full flex flex-col justify-center px-10 gap-5 ">
             <div className="flex gap-5 flex-col">
               {navLinks.map((link, index) => (
                 <Link
@@ -100,31 +129,6 @@ const Navbar = () => {
             </div>
           </div>
         )}
-      </div>
-
-      <div className="hidden md:flex md:gap-6 lg:gap-10 xl:gap-14 ">
-        <div className="flex gap-5">
-          {navLinks.map((link, index) => (
-            <Link
-              href={link.link}
-              key={index}
-              className="text-lg font-medium px-2 rounded-lg "
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
-        <div className="flex gap-2 flex-row text-2xl">
-          {socials.map((social, index) => {
-            const Icon = social.icon;
-            return (
-              <Link href={social.link} key={index} aria-label={social.name}>
-                <Icon />
-              </Link>
-            );
-          })}
-          <ToggleSwitch />
-        </div>
       </div>
     </nav>
   );
