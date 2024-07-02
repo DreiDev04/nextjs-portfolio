@@ -12,7 +12,7 @@ const ToggleSwitch: React.FC = () => {
   }, [checked]);
 
   return (
-    <label className="relative inline-block w-12 h-6">
+    <label className="relative inline-block w-12 h-6 ">
       <input
         type="checkbox"
         className="opacity-0 w-0 h-0"

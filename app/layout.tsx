@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/provider/theme-provider";
 
-
 const space_Grotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -36,8 +35,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          {children}
+          <div className="h-24 flex items-center">
+            <Navbar />
+          </div>
+          <div className="h-[calc(100vh - 6rem)]">{children}</div>
         </ThemeProvider>
       </body>
     </html>
