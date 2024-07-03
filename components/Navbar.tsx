@@ -128,7 +128,7 @@ const Navbar = () => {
           </Button>
         </div>
         <motion.div
-          className="absolute top-0 left-0 bg-foreground text-background w-full h-full flex flex-col justify-center px-10 gap-5"
+          className="absolute top-0 left-0 bg-foreground text-background w-full h-full flex flex-col justify-center px-10 gap-5 z-40"
           variants={navVariant}
           initial="hidden"
           animate={open ? "visible" : "hidden"}

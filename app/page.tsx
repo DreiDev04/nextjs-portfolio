@@ -73,9 +73,9 @@ const Home = () => {
           </motion.div>
         </div>
       </div>
-      <div className="md:w-1/2 grid place-content-center relative">
+      <div className="md:w-1/2 grid place-content-center relative  z-10">
         <motion.div
-          className="rounded-2xl relative"
+          className="rounded-2xl relative  z-10"
           initial="hidden"
           animate="visible"
           whileHover="hover"
@@ -85,7 +85,7 @@ const Home = () => {
             src="/Profile_3.jpg"
             height="400"
             width="400"
-            className="object-cover rounded-2xl"
+            className="object-cover rounded-2xl  z-10"
             alt="me"
             priority
           />
