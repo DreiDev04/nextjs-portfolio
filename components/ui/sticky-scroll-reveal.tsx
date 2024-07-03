@@ -42,7 +42,7 @@ export const StickyScroll = ({
   });
 
   const backgroundColors = [
-    "var(--background)",
+    "rgb(12,10,8)",
     "rgb(2,9,22)",
     "rgb(28,28,30)",
     "rgb(30,41,56)",
@@ -75,7 +75,7 @@ export const StickyScroll = ({
       <div className="div relative flex items-start px-4 h-full">
         <div className="max-w-2xl">
           {content.map((item, index) => (
-            <div key={item.title + index} className=" my-24">
+            <div key={item.title + index} className="my-24">
               <motion.h2
                 initial={{
                   opacity: 0,

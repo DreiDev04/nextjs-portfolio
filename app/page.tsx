@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import StackIcon from "tech-stack-icons";
 
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -54,7 +55,35 @@ const Home = () => {
           3rd year BS Computer Science Student. Passionate in making life easier
           through programming.
         </motion.p>
-        <div className="flex gap-2 mt-5">
+        <motion.div className="mt-5" variants={textVariants}>
+          <h1 className="text-sm font-semibold">Proficient</h1>
+          <div className="flex flex-wrap gap-2 text-sm mt-2">
+            <StackIcon className="max-w-6" name="typescript" />
+            <StackIcon className="max-w-6" name="js" />
+            <StackIcon className="max-w-6" name="python" />
+            <StackIcon className="max-w-6" name="java" />
+            <StackIcon className="max-w-6" name="visualbasic" />
+            <StackIcon className="max-w-6 dark:bg-foreground px-1 rounded " name="nextjs" />
+            <StackIcon className="max-w-6" name="reactjs" />
+            <StackIcon className="max-w-6" name="tailwindcss" />
+            <StackIcon className="max-w-6" name="shadcn" />
+            <StackIcon className="max-w-6" name="mongodb" />
+            <StackIcon className="max-w-6" name="git" />
+            <StackIcon className="max-w-6" name="github" />
+            <StackIcon className="max-w-6" name="sass" />
+          </div>
+          <h1 className="text-sm font-semibold mt-4">Familiar</h1>
+          <div className="flex flex-wrap gap-2 text-sm mt-2">
+            <StackIcon className="max-w-6" name="csharp" />
+            <StackIcon className="max-w-6" name="firebase" />
+            <StackIcon className="max-w-6" name="chakraui" />
+            <StackIcon className="max-w-6" name="bootstrap5" />
+            <StackIcon className="max-w-6" name="figma" />
+            <StackIcon className="max-w-6" name="unity" />
+            <StackIcon className="max-w-6" name="aws" />
+          </div>
+        </motion.div>
+        <div className="flex gap-2 mt-10">
           <motion.div
             initial="hidden"
             animate="visible"
