@@ -24,6 +24,12 @@ const config = {
     extend: {
       fontSize:{
         "display": "10rem",
+        "display-lg": "12rem",
+        
+      },
+      lineHeight:{
+        "display": "8rem",
+        "display-lg": "10rem",
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],

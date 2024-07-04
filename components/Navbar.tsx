@@ -10,20 +10,20 @@ import { IoMdClose } from "react-icons/io";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
-const socials = [
+export const socials = [
   {
     name: "LinkedIn",
-    link: "",
+    link: "https://www.linkedin.com/in/john-andrei-tacujan-123ry/",
     icon: FaLinkedin,
   },
   {
-    name: "GitHub",
-    link: "",
+    name: "Github",
+    link: "https://github.com/DreiDev04",
     icon: FaGithub,
   },
   {
     name: "Facebook",
-    link: "",
+    link: "https://www.facebook.com/iamjohnandrei",
     icon: FaFacebookSquare,
   },
 ];
