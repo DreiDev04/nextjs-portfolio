@@ -37,8 +37,8 @@ const navLinks = [
     link: "/projects",
   },
   {
-    name: "Blog",
-    link: "/blog",
+    name: "About Me",
+    link: "/about",
   },
   {
     name: "Contact",

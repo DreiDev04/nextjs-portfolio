@@ -81,6 +81,8 @@ const Home = () => {
             <StackIcon className="max-w-6" name="figma" />
             <StackIcon className="max-w-6" name="unity" />
             <StackIcon className="max-w-6" name="aws" />
+            <StackIcon className="max-w-6 dark:bg-foreground px-1 rounded" name="flask" />
+            <StackIcon className="max-w-6  dark:bg-foreground px-1 rounded" name="framer" />
           </div>
         </motion.div>
         <div className="flex gap-2 mt-10">
