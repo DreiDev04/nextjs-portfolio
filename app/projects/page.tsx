@@ -12,7 +12,7 @@ const content = [
       "Charina's Store is a full stack website that showcases the integration of modern web development technologies. This is my final project in CS50. One of the key features of Charina's Store is its Role-Based Access Control (RBAC) system.",
     techStack:
       "NextJS,AWS S3,TypeScript,TailwindCSS,Shadcn,MongoDB,Google OAuth2.0",
-    url: "https://cs50-final-project-next-js-v9z1.vercel.app",
+    url: "https://cs50-final-project-next-js.vercel.app",
     content: (
       <div className="h-full w-full  flex items-center justify-center" >
         <Image
