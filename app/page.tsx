@@ -46,7 +46,7 @@ const Home = () => {
           className="text-4xl font-normal text-neutral-600 dark:text-neutral-400"
           variants={textVariants}
         >
-          Hello, I' am{" "}
+          Hello, I' am
           <span className="underline underline-offset-8 decoration-green-500">
             John Andrei
           </span>
