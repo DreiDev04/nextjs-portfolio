@@ -35,110 +35,112 @@ const imageVariants = {
 
 const Home = () => {
   return (
-    <motion.div
-      className="container flex flex-col-reverse md:flex-row justify-center md:px-14 gap-4 mt-10"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      <div className="md:w-1/2 grid place-content-center container mb-10 md:mb-0">
-        <motion.div
-          className="text-4xl font-normal text-neutral-600 dark:text-neutral-400"
-          variants={textVariants}
-        >
-          Hello, I' am
-          <span className="underline underline-offset-8 decoration-green-500">
-            John Andrei
-          </span>
-        </motion.div>
-        <motion.p className="mt-5 md:w-2/3" variants={textVariants}>
-          Based in the Philippines. I'm a NextJS/React Developer. Currently, a
-          3rd year BS Computer Science Student. Passionate in making life easier
-          through programming.
-        </motion.p>
-        <motion.div className="mt-5" variants={textVariants}>
-          <h1 className="text-sm font-semibold">Proficient</h1>
-          <div className="flex flex-wrap gap-2 text-sm mt-2">
-            <StackIcon className="max-w-6" name="typescript" />
-            <StackIcon className="max-w-6" name="js" />
-            <StackIcon className="max-w-6" name="python" />
-            <StackIcon className="max-w-6" name="java" />
-            <StackIcon className="max-w-6" name="visualbasic" />
-            <StackIcon
-              className="max-w-6 dark:bg-foreground px-1 rounded "
-              name="nextjs"
-            />
-            <StackIcon className="max-w-6" name="reactjs" />
-            <StackIcon className="max-w-6" name="tailwindcss" />
-            {/* <StackIcon className="max-w-6" name="shadcn" /> */}
-            <StackIcon className="max-w-6" name="mongodb" />
-            <StackIcon className="max-w-6" name="git" />
-            <StackIcon className="max-w-6" name="github" />
-            <StackIcon className="max-w-6" name="sass" />
-          </div>
-          <h1 className="text-sm font-semibold mt-4">Familiar</h1>
-          <div className="flex flex-wrap gap-2 text-sm mt-2">
-            <StackIcon className="max-w-6" name="csharp" />
-            <StackIcon className="max-w-6" name="firebase" />
-            <StackIcon className="max-w-6" name="chakraui" />
-            <StackIcon className="max-w-6" name="bootstrap5" />
-            <StackIcon className="max-w-6" name="figma" />
-            {/* <StackIcon className="max-w-6" name="unity" /> */}
-            <StackIcon className="max-w-6" name="aws" />
-            <StackIcon
-              className="max-w-6 dark:bg-foreground px-1 rounded"
-              name="flask"
-            />
-            <StackIcon
-              className="max-w-6  dark:bg-foreground px-1 rounded"
-              name="framer"
-            />
-          </div>
-        </motion.div>
-        <div className="flex gap-2 mt-10">
+    <div className="grid place-items-center h-full">
+      <motion.div
+        className="container flex flex-col-reverse md:flex-row  md:px-14 gap-4"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="md:w-1/2 grid place-content-center container mb-10 md:mb-0">
           <motion.div
-            initial="hidden"
-            animate="visible"
-            whileHover="hover"
-            variants={buttonVariants}
+            className="text-4xl font-normal text-neutral-600 dark:text-neutral-400"
+            variants={textVariants}
           >
-            <Button type="button" asChild>
-              <Link href="/projects">View Projects</Link>
-            </Button>
+            Hello, I' am
+            <span className="underline underline-offset-8 decoration-green-500">
+              John Andrei
+            </span>
           </motion.div>
+          <motion.p className="mt-5 md:w-2/3" variants={textVariants}>
+            Based in the Philippines. I'm a NextJS/React Developer. Currently, a
+            3rd year BS Computer Science Student. Passionate in making life
+            easier through programming.
+          </motion.p>
+          <motion.div className="mt-5" variants={textVariants}>
+            <h1 className="text-sm font-semibold">Proficient</h1>
+            <div className="flex flex-wrap gap-2 text-sm mt-2">
+              <StackIcon className="max-w-6" name="typescript" />
+              <StackIcon className="max-w-6" name="js" />
+              <StackIcon className="max-w-6" name="python" />
+              <StackIcon className="max-w-6" name="java" />
+              <StackIcon className="max-w-6" name="visualbasic" />
+              <StackIcon
+                className="max-w-6 dark:bg-foreground px-1 rounded "
+                name="nextjs"
+              />
+              <StackIcon className="max-w-6" name="reactjs" />
+              <StackIcon className="max-w-6" name="tailwindcss" />
+              {/* <StackIcon className="max-w-6" name="shadcn" /> */}
+              <StackIcon className="max-w-6" name="mongodb" />
+              <StackIcon className="max-w-6" name="git" />
+              <StackIcon className="max-w-6" name="github" />
+              <StackIcon className="max-w-6" name="sass" />
+            </div>
+            <h1 className="text-sm font-semibold mt-4">Familiar</h1>
+            <div className="flex flex-wrap gap-2 text-sm mt-2">
+              <StackIcon className="max-w-6" name="csharp" />
+              <StackIcon className="max-w-6" name="firebase" />
+              <StackIcon className="max-w-6" name="chakraui" />
+              <StackIcon className="max-w-6" name="bootstrap5" />
+              <StackIcon className="max-w-6" name="figma" />
+              {/* <StackIcon className="max-w-6" name="unity" /> */}
+              <StackIcon className="max-w-6" name="aws" />
+              <StackIcon
+                className="max-w-6 dark:bg-foreground px-1 rounded"
+                name="flask"
+              />
+              <StackIcon
+                className="max-w-6  dark:bg-foreground px-1 rounded"
+                name="framer"
+              />
+            </div>
+          </motion.div>
+          <div className="flex gap-2 mt-10">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              whileHover="hover"
+              variants={buttonVariants}
+            >
+              <Button type="button" asChild>
+                <Link href="/projects">View Projects</Link>
+              </Button>
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              whileHover="hover"
+              variants={buttonVariants}
+            >
+              <Button variant="outline" asChild>
+                <Link href="/contact">Contact Me</Link>
+              </Button>
+            </motion.div>
+          </div>
+        </div>
+        <div className="md:w-1/2 grid place-content-center z-10">
           <motion.div
+            className="rounded-2xl border z-10"
             initial="hidden"
             animate="visible"
             whileHover="hover"
-            variants={buttonVariants}
+            variants={imageVariants}
           >
-            <Button variant="outline" asChild>
-              <Link href="/contact">Contact Me</Link>
-            </Button>
+            <div>
+              <Image
+                src="/Profile_3copy.jpg"
+                height="400"
+                width="400"
+                className="object-cover rounded-2xl  z-10"
+                alt="me"
+                priority
+              />
+            </div>
           </motion.div>
         </div>
-      </div>
-      <div className="md:w-1/2 grid place-content-center z-10">
-        <motion.div
-          className="rounded-2xl border z-10"
-          initial="hidden"
-          animate="visible"
-          whileHover="hover"
-          variants={imageVariants}
-        >
-          <div>
-            <Image
-              src="/Profile_3copy.jpg"
-              height="400"
-              width="400"
-              className="object-cover rounded-2xl  z-10"
-              alt="me"
-              priority
-            />
-          </div>
-        </motion.div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 

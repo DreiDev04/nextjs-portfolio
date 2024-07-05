@@ -14,7 +14,7 @@ const Contact = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={contactInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 1 }}
-      className="flex md:flex-row flex-col bg-background"
+      className="flex md:flex-row flex-col bg-background container"
     >
       <div className="md:w-1/2 flex flex-col justify-center items-start p-10">
         <h1 className="text-7xl font-bold leading-none">
