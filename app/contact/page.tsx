@@ -2,11 +2,21 @@
 import React from "react";
 import Link from "next/link";
 import { socials } from "@/components/Navbar";
+import { motion, useInView } from "framer-motion";
 
 const Contact = () => {
+  const contactRef = React.useRef(null);
+  const contactInView = useInView(contactRef, { once: true });
+
   return (
-    <div className=" flex flex-row bg-background">
-      <div className="w-1/2 flex flex-col justify-center items-start p-10">
+    <motion.div
+      ref={contactRef}
+      initial={{ opacity: 0, y: 50 }}
+      animate={contactInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 1 }}
+      className="flex md:flex-row flex-col bg-background"
+    >
+      <div className="md:w-1/2 flex flex-col justify-center items-start p-10">
         <h1 className="text-7xl font-bold leading-none">
           Want to
           <br />
@@ -18,8 +28,13 @@ const Contact = () => {
         </h1>
         <p className="mt-4 text-xl">Or just say hello.</p>
       </div>
-      <div className="w-1/2 flex flex-col justify-center items-start p-10 ">
-        <div className="mb-8">
+      <div className="md:w-1/2 flex flex-col justify-center items-start p-10 ">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={contactInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ delay: 0.2, duration: 1 }}
+          className="mb-8"
+        >
           <h1 className="text-lg font-bold">Email me at:</h1>
           <Link
             href="mailto:tacujan.andrei@gmail.com"
@@ -27,28 +42,40 @@ const Contact = () => {
           >
             tacujan.andrei@gmail.com
           </Link>
-        </div>
-        <div className="mb-8">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={contactInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ delay: 0.4, duration: 1 }}
+          className="mb-8"
+        >
           <ul className="flex space-x-4 text-lg">
             {socials.map((social, index) => {
               const Icon = social.icon;
               return (
-                <>
-                  <Link href={social.link} key={index} className="underline flex justify-center items-center gap-1">
-                    <Icon />
-                    {social.name}
-                  </Link>
-                </>
+                <Link
+                  href={social.link}
+                  key={index}
+                  className="underline flex justify-center items-center gap-1"
+                >
+                  <Icon />
+                  {social.name}
+                </Link>
               );
             })}
           </ul>
-        </div>
-        <div className="w-full">
-          <h2 className="text-lg mb-2">Designed and coded by John Andrei</h2>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={contactInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ delay: 0.6, duration: 1 }}
+          className="w-full"
+        >
+          <h2 className="text-lg mb-2 ">Designed and coded by John Andrei</h2>
           <p className="text-sm mb-2">© John Andrei 2024</p>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -79,7 +79,7 @@ const Navbar = () => {
         href="/"
         className="text-2xl font-bold underline underline-offset-8 decoration-green-500 -rotate-2"
       >
-        John Andrei 👨‍💻
+        John Andrei
       </Link>
 
       {/* Desktop Navigation */}
@@ -89,7 +89,7 @@ const Navbar = () => {
             <Link
               href={link.link}
               key={index}
-              className={`text-lg font-medium px-2 rounded-lg ${
+              className={`text-md font-medium px-2 rounded-lg ${
                 pathname === link.link ? "bg-foreground text-background" : ""
               }`}
             >
@@ -139,6 +139,9 @@ const Navbar = () => {
                 href={link.link}
                 key={index}
                 className="text-2xl font-medium px-2 rounded-lg "
+                onClick={()=>{
+                  setOpen(false);
+                }}
               >
                 {link.name}
               </Link>

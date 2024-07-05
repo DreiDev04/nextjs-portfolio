@@ -1,8 +1,10 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
+import { LinkPreview } from "@/components/ui/link-preview";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 export const StickyScroll = ({
   content,
@@ -13,6 +15,7 @@ export const StickyScroll = ({
     description: string;
     techStack?: string;
     content?: React.ReactNode | any;
+    url: string;
   }[];
   contentClassName?: string;
 }) => {
@@ -69,7 +72,7 @@ export const StickyScroll = ({
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
-      className="h-[calc(100vh-6rem)] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10 "
+      className="h-[calc(100vh-6rem)] overflow-y-auto flex justify-center relative space-x-10 rounded-md pb-20"
       ref={ref}
     >
       <div className="div relative flex items-start px-4 h-full">
@@ -85,7 +88,13 @@ export const StickyScroll = ({
                 }}
                 className="text-2xl font-bold text-slate-100"
               >
-                {item.title}
+                <LinkPreview
+                  url={item.url ?? ""}
+                  className="font-bold flex gap-2"
+                >
+                  {item.title}
+                  <FaExternalLinkAlt />
+                </LinkPreview>
               </motion.h2>
 
               <motion.p

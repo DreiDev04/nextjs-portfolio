@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import StackIcon from "tech-stack-icons";
+import Link from "next/link";
 
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -35,7 +36,7 @@ const imageVariants = {
 const Home = () => {
   return (
     <motion.div
-      className="container flex flex-col-reverse md:flex-row justify-center md:px-14 mt-10 gap-4"
+      className="container flex flex-col-reverse md:flex-row justify-center md:px-14 gap-4 mt-10"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -63,10 +64,13 @@ const Home = () => {
             <StackIcon className="max-w-6" name="python" />
             <StackIcon className="max-w-6" name="java" />
             <StackIcon className="max-w-6" name="visualbasic" />
-            <StackIcon className="max-w-6 dark:bg-foreground px-1 rounded " name="nextjs" />
+            <StackIcon
+              className="max-w-6 dark:bg-foreground px-1 rounded "
+              name="nextjs"
+            />
             <StackIcon className="max-w-6" name="reactjs" />
             <StackIcon className="max-w-6" name="tailwindcss" />
-            <StackIcon className="max-w-6" name="shadcn" />
+            {/* <StackIcon className="max-w-6" name="shadcn" /> */}
             <StackIcon className="max-w-6" name="mongodb" />
             <StackIcon className="max-w-6" name="git" />
             <StackIcon className="max-w-6" name="github" />
@@ -79,10 +83,16 @@ const Home = () => {
             <StackIcon className="max-w-6" name="chakraui" />
             <StackIcon className="max-w-6" name="bootstrap5" />
             <StackIcon className="max-w-6" name="figma" />
-            <StackIcon className="max-w-6" name="unity" />
+            {/* <StackIcon className="max-w-6" name="unity" /> */}
             <StackIcon className="max-w-6" name="aws" />
-            <StackIcon className="max-w-6 dark:bg-foreground px-1 rounded" name="flask" />
-            <StackIcon className="max-w-6  dark:bg-foreground px-1 rounded" name="framer" />
+            <StackIcon
+              className="max-w-6 dark:bg-foreground px-1 rounded"
+              name="flask"
+            />
+            <StackIcon
+              className="max-w-6  dark:bg-foreground px-1 rounded"
+              name="framer"
+            />
           </div>
         </motion.div>
         <div className="flex gap-2 mt-10">
@@ -92,7 +102,9 @@ const Home = () => {
             whileHover="hover"
             variants={buttonVariants}
           >
-            <Button type="button">View Projects</Button>
+            <Button type="button" asChild>
+              <Link href="/projects">View Projects</Link>
+            </Button>
           </motion.div>
           <motion.div
             initial="hidden"
@@ -100,26 +112,30 @@ const Home = () => {
             whileHover="hover"
             variants={buttonVariants}
           >
-            <Button variant="outline">Contact Me</Button>
+            <Button variant="outline" asChild>
+              <Link href="/contact">Contact Me</Link>
+            </Button>
           </motion.div>
         </div>
       </div>
-      <div className="md:w-1/2 grid place-content-center relative  z-10">
+      <div className="md:w-1/2 grid place-content-center z-10">
         <motion.div
-          className="rounded-2xl relative  z-10"
+          className="rounded-2xl border z-10"
           initial="hidden"
           animate="visible"
           whileHover="hover"
           variants={imageVariants}
         >
-          <Image
-            src="/Profile_3.jpg"
-            height="400"
-            width="400"
-            className="object-cover rounded-2xl  z-10"
-            alt="me"
-            priority
-          />
+          <div>
+            <Image
+              src="/Profile_3copy.jpg"
+              height="400"
+              width="400"
+              className="object-cover rounded-2xl  z-10"
+              alt="me"
+              priority
+            />
+          </div>
         </motion.div>
       </div>
     </motion.div>
