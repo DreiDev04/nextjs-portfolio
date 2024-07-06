@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 import { LinkPreview } from "@/components/ui/link-preview";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import Link from "next/link";
 
 export const StickyScroll = ({
   content,
@@ -79,23 +80,20 @@ export const StickyScroll = ({
         <div className="max-w-2xl">
           {content.map((item, index) => (
             <div key={item.title + index} className="my-24">
-              <motion.h2
+              <motion.div
                 initial={{
                   opacity: 0,
                 }}
                 animate={{
                   opacity: activeCard === index ? 1 : 0.3,
                 }}
-                className="text-2xl font-bold text-slate-100"
               >
-                <LinkPreview
-                  url={item.url ?? ""}
-                  className="font-bold flex gap-2"
-                >
+                <Link href={item.url} className="flex gap-2 text-2xl font-bold text-background dark:text-foreground" target="_blank">
                   {item.title}
                   <FaExternalLinkAlt />
-                </LinkPreview>
-              </motion.h2>
+                </Link>
+                
+              </motion.div>
 
               <motion.p
                 initial={{

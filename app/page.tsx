@@ -35,14 +35,14 @@ const imageVariants = {
 
 const Home = () => {
   return (
-    <div className="grid place-items-center h-full">
+    <div className="h-full flex mt-20">
       <motion.div
-        className="container flex flex-col-reverse md:flex-row  md:px-14 gap-4"
+        className="container flex flex-col-reverse md:flex-row  md:px-14 gap-4 "
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="md:w-1/2 grid place-content-center container mb-10 md:mb-0">
+        <div className="md:w-1/2 grid place-content-center container md:mb-0 ">
           <motion.div
             className="text-4xl font-normal text-neutral-600 dark:text-neutral-400"
             variants={textVariants}

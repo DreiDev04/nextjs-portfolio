@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import Navbar from "@/components/Navbar";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/provider/theme-provider";
+import Head from "next/head";
 
 const space_Grotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -22,6 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/man-technologist.svg" type="image/svg" />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased ",
