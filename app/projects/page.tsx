@@ -7,6 +7,25 @@ import { motion } from "framer-motion";
 
 const content = [
   {
+    title: "AI Content Generator",
+    description:
+      " A-Idea is a tool to generate ideas for your content. A platform that helps you to create idea with the help of Gemini AI. A-Idea is a free to use platform that offers powerful tools and resources to help you get started. ",
+    techStack:
+      "NextJS,TypeScript,TailwindCSS,Gemini API,Shadcn,Clerk,Neon,DrizzleORM",
+    url: "https://a-idea.vercel.app",
+    content: (
+      <div className="h-full w-full  flex items-center justify-center" >
+        <Image
+          src="/project/a-idea.png"
+          width={1000}
+          height={1000}
+          className="h-full w-full object-cover"
+          alt="A-idea demo"
+        />
+      </div>
+    ),
+  },
+  {
     title: "Charina's Store",
     description:
       "Charina's Store is a full stack website that showcases the integration of modern web development technologies. This is my final project in CS50. One of the key features of Charina's Store is its Role-Based Access Control (RBAC) system.",
