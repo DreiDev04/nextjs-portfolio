@@ -9,7 +9,7 @@ const content = [
   {
     title: "Event++",
     description:
-      "Event++ is a collaborative event planning platform that allows you to create, manage, and share events with your friends. It has a role-based access control system that allows you to manage your evvent by assigning roles to your friends. It also has a chat feature that allows you to communicate with your friends. ",
+      "Event++ is a collaborative event planning platform that allows you to create, manage, and share events with your friends. It has a role-based access control system that allows you to manage your evvent by assigning roles to your friends.",
     techStack:
       "NextJS,TypeScript,TailwindCSS,Shadcn,Clerk,Supabase,PrismaORM,Postgresql,Syncfussion",
     url: "https://eventplusplus.vercel.app",
