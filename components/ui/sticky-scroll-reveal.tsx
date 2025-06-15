@@ -140,7 +140,7 @@ export const StickyScroll = ({
         exit={{ opacity: 0 }}
         transition={{ duration: 1 }}
         className={cn(
-          "hidden lg:block h-60 w-80 rounded-md  sticky top-10 overflow-hidden",
+          "hidden lg:block h-60 w-80 rounded-md sticky top-10 overflow-hidden",
           contentClassName
         )}
       >

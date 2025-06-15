@@ -1,7 +1,47 @@
-TODO:
+# Portfolio Enhancement TODOs
 
-Link Preview
-Lightmode Link text
-Home page PY-auto
+## General Improvements
+- Add a proper resume download link in the home page and/or about page
+- Implement proper form submission functionality in the contact page
+- Add SEO optimization meta tags
+- Implement site-wide analytics to track user engagement
+- Fix light mode link text contrast for better readability
 
+## Previous TODOs
+- Link Preview implementation
+- Home page PY-auto fix
 
+## Home Page
+- Add a section showcasing featured projects with brief descriptions
+- Create a testimonials section if you have client feedback
+- Add a "current status" section that shows what you're working on now
+
+## Projects Page
+- Create individual project detail pages with in-depth case studies
+- Add pagination or "load more" functionality if the project list grows
+- Include video demos or GIFs for dynamic projects
+- Add GitHub stats or contribution graph
+
+## About Page
+- Add a downloadable resume section
+- Include a skills rating visualization
+- Expand the timeline with more detailed career/education milestones
+- Add a section on volunteer work or contributions to open source
+
+## Contact Page
+- Implement form validation with error messages
+- Connect the form to a backend service (Formspree, Netlify Forms, etc.)
+- Add a success message after form submission
+- Include a FAQ section for common inquiries
+
+## Design & UX
+- Test and optimize for accessibility (WCAG compliance)
+- Ensure proper keyboard navigation throughout the site
+- Test and optimize for mobile responsiveness
+- Add smooth scroll to anchor links
+
+## Technical Enhancements
+- Implement proper image optimization and lazy loading
+- Add more interactive UI elements using framer-motion
+- Set up a blog section to share your knowledge
+- Implement dark/light mode preference persistence

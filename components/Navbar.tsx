@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaFacebookSquare, FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 import Link from "next/link";
@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const socials = [
   {
@@ -27,6 +27,7 @@ export const socials = [
     icon: FaFacebookSquare,
   },
 ];
+
 const navLinks = [
   {
     name: "Home",
@@ -46,120 +47,153 @@ const navLinks = [
   },
 ];
 
-const navVariant = {
-  hidden: {
-    opacity: 0,
-    y: "-100%",
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 10,
-      duration: 0.2,
-    },
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 10,
-      duration: 0.2,
-    },
-  },
-};
-
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="flex flex-row justify-between container">
-      <Link
-        href="/"
-        className="text-2xl font-bold underline underline-offset-8 decoration-green-500 -rotate-2"
-      >
-        John Andrei
-      </Link>
-
-      {/* Desktop Navigation */}
-      <div className="hidden md:flex md:gap-6 lg:gap-10 xl:gap-14 ">
-        <div className="flex gap-5">
-          {navLinks.map((link, index) => (
-            <Link
-              href={link.link}
-              key={index}
-              className={`text-md font-medium px-2 rounded-lg ${
-                pathname === link.link ? "bg-foreground text-background" : ""
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
-        <div className="flex gap-2 flex-row text-2xl">
-          {socials.map((social, index) => {
-            const Icon = social.icon;
-            return (
-              <Link href={social.link} key={index} aria-label={social.name}>
-                <Icon />
-              </Link>
-            );
-          })}
-          <ToggleSwitch />
-        </div>
-      </div>
-
-      {/* Mobile Navigation */}
-      <div className="flex gap-10 md:hidden ">
-        <div className="flex gap-1 items-center">
-          <ToggleSwitch />
-          <Button
-            variant="ghost"
-            size="sm"
-            className="z-50 relative "
-            onClick={() => setOpen((prev) => !prev)}
-          >
-            {open ? (
-              <IoMdClose className="text-lg text-background " />
-            ) : (
-              <GiHamburgerMenu className="text-lg" />
-            )}
-          </Button>
-        </div>
-        <motion.div
-          className="absolute top-0 left-0 bg-foreground text-background w-full h-full flex flex-col justify-center px-10 gap-5 z-40"
-          variants={navVariant}
-          initial="hidden"
-          animate={open ? "visible" : "hidden"}
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-sm"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="container mx-auto flex items-center justify-between py-4 px-4">
+        <Link
+          href="/"
+          className="text-2xl font-bold relative group"
         >
-          <div className="flex gap-5 flex-col">
-            {navLinks.map((link, index) => (
+          <span className="relative z-10">John Andrei</span>
+          <motion.span
+            className="absolute bottom-0 left-0 w-full h-1 bg-green-500 rounded-full z-0"
+            layoutId="navbar-highlight"
+            transition={{ type: "spring", stiffness: 350, damping: 30 }}
+          />
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-8">
+          <div className="flex items-center space-x-6">
+            {navLinks.map((link) => (
               <Link
                 href={link.link}
-                key={index}
-                className="text-2xl font-medium px-2 rounded-lg "
-                onClick={()=>{
-                  setOpen(false);
-                }}
+                key={link.name}
+                className={`relative px-2 py-1 text-sm font-medium transition-colors group ${
+                  pathname === link.link
+                    ? "text-green-500"
+                    : "hover:text-green-500"
+                }`}
               >
                 {link.name}
+                {pathname === link.link && (
+                  <motion.span
+                    layoutId="navbar-item"
+                    className="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 rounded-full"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
               </Link>
             ))}
           </div>
-          <div className="flex gap-2 flex-row text-2xl justify-center">
-            {socials.map((social, index) => {
+
+          <div className="flex items-center space-x-4">
+            {socials.map((social) => {
               const Icon = social.icon;
               return (
-                <Link href={social.link} key={index} aria-label={social.name}>
+                <Link
+                  href={social.link}
+                  key={social.name}
+                  aria-label={social.name}
+                  className="text-xl hover:text-green-500 transition-colors"
+                  target="_blank"
+                >
                   <Icon />
                 </Link>
               );
             })}
+            <ToggleSwitch />
           </div>
-        </motion.div>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className="flex items-center md:hidden">
+          <ToggleSwitch />
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setOpen(!open)}
+            className="ml-2"
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
+            {open ? <IoMdClose size={24} /> : <GiHamburgerMenu size={24} />}
+          </Button>
+        </div>
       </div>
-    </nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-background border-t dark:border-neutral-800"
+          >
+            <div className="container mx-auto py-4 px-4 space-y-4">
+              {navLinks.map((link) => (
+                <Link
+                  href={link.link}
+                  key={link.name}
+                  className={`block py-2 text-lg font-medium ${
+                    pathname === link.link
+                      ? "text-green-500"
+                      : "hover:text-green-500"
+                  }`}
+                  onClick={() => setOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+
+              <div className="flex space-x-6 pt-4 border-t dark:border-neutral-800">
+                {socials.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <Link
+                      href={social.link}
+                      key={social.name}
+                      aria-label={social.name}
+                      className="text-2xl hover:text-green-500 transition-colors"
+                      target="_blank"
+                      onClick={() => setOpen(false)}
+                    >
+                      <Icon />
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 };
 

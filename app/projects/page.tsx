@@ -4,8 +4,64 @@ import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-
 const content = [
+  {
+    title: "ESP32 Door Lock App",
+    description:
+      "ESP32 Door Lock App is a React Native application that allows you to control your door lock using your smartphone. It uses Firebase as the backend and Expo for development.",
+    techStack:
+      "React Native,Expo,Firebase,JavaScript,NativeWind",
+    url: "",
+    content: (
+      <div className="h-full w-full  flex items-center justify-center">
+        {/* <Image
+          src="/project/EventPlusPlus.png"
+          width={1000}
+          height={1000}
+          className="h-full w-full object-cover"
+          alt="Event++ demo"
+        /> */}
+      </div>
+    ),
+  },
+  {
+    title: "OrganizeIt",
+    description:
+      "OrganizeIt provides a project management system that allows you to create, manage, and share projects with your team. It has a role-based access control system that allows you to manage your project by assigning roles to your team members.",
+    techStack:
+      "Laravel,ReactJS,TailwindCSS,PHP",
+    url: "http://54.169.103.246",
+    content: (
+      <div className="h-full w-full  flex items-center justify-center">
+        {/* <Image
+          src="/project/EventPlusPlus.png"
+          width={1000}
+          height={1000}
+          className="h-full w-full object-cover"
+          alt="Event++ demo"
+        /> */}
+      </div>
+    ),
+  },
+  {
+    title: "TSU Website Clone",
+    description:
+      "This is a clone of the official website of Tarlac State University. This is a project that got perfect score in my Web Development subject. ",
+    techStack:
+      "NextJS,TypeScript,TailwindCSS",
+    url: "https://tsu-clone.vercel.app",
+    content: (
+      <div className="h-full w-full  flex items-center justify-center">
+        {/* <Image
+          src="/project/EventPlusPlus.png"
+          width={1000}
+          height={1000}
+          className="h-full w-full object-cover"
+          alt="Event++ demo"
+        /> */}
+      </div>
+    ),
+  },
   {
     title: "Event++",
     description:
@@ -14,7 +70,7 @@ const content = [
       "NextJS,TypeScript,TailwindCSS,Shadcn,Clerk,Supabase,PrismaORM,Postgresql,Syncfussion",
     url: "https://eventplusplus.vercel.app",
     content: (
-      <div className="h-full w-full  flex items-center justify-center" >
+      <div className="h-full w-full  flex items-center justify-center">
         <Image
           src="/project/EventPlusPlus.png"
           width={1000}
@@ -33,7 +89,7 @@ const content = [
       "NextJS,TypeScript,TailwindCSS,Gemini API,Shadcn,Clerk,Neon,DrizzleORM",
     url: "https://a-idea.vercel.app",
     content: (
-      <div className="h-full w-full  flex items-center justify-center" >
+      <div className="h-full w-full  flex items-center justify-center">
         <Image
           src="/project/a-idea.png"
           width={1000}
@@ -52,7 +108,7 @@ const content = [
       "NextJS,AWS S3,TypeScript,TailwindCSS,Shadcn,MongoDB,Google OAuth2.0",
     url: "https://cs50-final-project-next-js.vercel.app",
     content: (
-      <div className="h-full w-full  flex items-center justify-center" >
+      <div className="h-full w-full  flex items-center justify-center">
         <Image
           src="/project/Charina_Store.png"
           width={1000}
@@ -171,7 +227,6 @@ const content = [
       </div>
     ),
   },
-  
 ];
 export default function Projects() {
   return (
